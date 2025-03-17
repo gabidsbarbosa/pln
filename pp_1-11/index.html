@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tradutor Simples</title>
+    <style>
+        *{
+            font-family:'Courier New', Courier, monospace;
+        }
+        body {
+            text-align: center;
+            margin: 50px;
+        }
+        textarea {
+            width: 300px;
+            height: 100px;
+        }
+        select, button {
+            margin-top: 10px;
+            padding: 5px;
+        }
+        #resultado {
+            margin-top: 20px;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+
+    <h2>Tradutor Simples</h2>
+    
+    <textarea id="texto" placeholder="Digite o texto para traduzir..."></textarea><br>
+    
+    <select id="idioma">
+        <option value="en">Português → Inglês</option>
+        <option value="pt">Inglês → Português</option>
+    </select>
+
+    <button onclick="traduzir()">Traduzir</button>
+
+    <p id="resultado"></p>
+
+    <script>
+        async function traduzir() {
+            let texto = document.getElementById("texto").value;
+            let idioma = document.getElementById("idioma").value;
+            
+            if (!texto.trim()) {
+                alert("Digite um texto para traduzir.");
+                return;
+            }
+
+            try {
+                let resposta = await fetch('http://127.0.0.1:5000/traduzir', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({ texto, idioma })
+                });
+
+                let dados = await resposta.json();
+                if (dados.traducao) {
+                    document.getElementById("resultado").innerText = "Tradução: " + dados.traducao;
+                } else {
+                    document.getElementById("resultado").innerText = "Erro: " + dados.erro;
+                }
+            } catch (error) {
+                document.getElementById("resultado").innerText = "Erro na comunicação com o servidor.";
+            }
+        }
+    </script>
+
+</body>
+</html>

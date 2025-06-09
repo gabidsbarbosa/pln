@@ -25,4 +25,3 @@ python app.py
 ```
 python usar_modelo.py
 ```
-l.

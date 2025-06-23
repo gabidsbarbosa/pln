@@ -12,10 +12,15 @@ Organização das pastas:
 
 Resolução da Atividade Prática 1.11
 
-### /tc_1-6
-
-Resolução da Atividade Teórica 1.6
 
 ### /pp_3-6
 
 Resolução da Atividade Prática 3.6
+
+### /summarization
+
+Resolução do exercício Técnicas de Sumarização - com foco em sumarização abstrata.
+
+### /tc_1-6
+
+Resolução da Atividade Teórica 1.6

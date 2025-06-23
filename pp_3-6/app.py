@@ -65,7 +65,7 @@ print("== Relatório de Classificação ==")
 print(classification_report(y_test, y_pred, labels=[0, 1, 2], target_names=["Negativo", "Positivo", "Neutro"]))
 
 # Nova frase para classificação
-nova_frase = "produto é ok"
+nova_frase = "excelente superior recomendo"
 vetor_novo = loaded_vectorizer.transform([nova_frase])
 predicao = loaded_clf.predict(vetor_novo)[0]
 

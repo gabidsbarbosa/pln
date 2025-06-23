@@ -107,7 +107,7 @@ python app.py
 
 ## 📽️ Demonstração em Vídeo
 
-📹 [YouTube](https://youtu.be/4fzwEhTFcNM)
+📹 [YouTube](https://youtu.be/gzLNV2IdHHY)
 
 ## 📂 Estrutura do Projeto
 
